@@ -1,3 +1,37 @@
+# 医学美容设计教学平台
+
+重庆建筑科技职业学院智慧康养学院定制教学版，用于面部美学比例与对称性课堂示范。
+
+## 核心功能
+
+- 四步教学闭环：载入案例、智能辅助分析、方案标注、学习报告
+- 本地合成人像与 SVG 三庭、五眼、中轴、轮廓标注
+- 100 分制规则评价与确定性改进建议
+- 浏览器本地恢复、一键重置和学习报告页面预览
+- 完全离线运行，不调用在线模型、draw.io 或外部分析服务
+
+## 本地运行
+
+```bash
+npm install
+npm run build
+npm run demo:start
+```
+
+打开 `http://localhost:6001/zh/medical-aesthetic`。
+
+- macOS 可双击 `scripts/start-medical-aesthetic.command`
+- Windows 可双击 `scripts/start-medical-aesthetic.cmd`
+- 详细设计见 `docs/superpowers/specs/2026-07-10-medical-aesthetic-teaching-platform-design.md`
+
+> 本平台仅用于医学美容技术专业教学示范，不用于医疗诊断、治疗决策或效果预测。
+
+## 上游项目与许可证
+
+本项目基于开源项目 `DayuanJiang/next-ai-draw-io` 定制开发，继续遵循 Apache-2.0 许可证。下方保留上游项目原始说明。
+
+---
+
 # Next AI Draw.io
 
 <div align="center">
