@@ -1,12 +1,3 @@
 {
-    "functions": {
-        "app/api/chat/route.ts": {
-            "memory": 512,
-            "maxDuration": 120
-        },
-        "app/api/**/route.ts": {
-            "memory": 256,
-            "maxDuration": 10
-        }
-    }
+    "$schema": "https://openapi.vercel.sh/vercel.json"
 }
