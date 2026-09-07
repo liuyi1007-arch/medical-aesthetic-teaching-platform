@@ -179,9 +179,14 @@ async function handleChatRequest(req: Request): Promise<Response> {
     let baseUrl = req.headers.get("x-ai-base-url")
     const selectedModelId = req.headers.get("x-selected-model-id")
 
+    // Effective provider: client header takes precedence, then server env AI_PROVIDER.
+    // Required so a server-default EdgeOne config (AI_PROVIDER=edgeone) also gets
+    // an absolute base URL and auth cookies - the client sends no headers in that case.
+    const effectiveProvider = provider || process.env.AI_PROVIDER
+
     // For EdgeOne provider, construct full URL from request origin
     // because createOpenAI needs absolute URL, not relative path
-    if (provider === "edgeone" && !baseUrl) {
+    if (effectiveProvider === "edgeone" && !baseUrl) {
         const origin = req.headers.get("origin") || new URL(req.url).origin
         baseUrl = `${origin}/api/edgeai`
     }
@@ -211,8 +216,13 @@ async function handleChatRequest(req: Request): Promise<Response> {
     }
 
     const clientOverrides = {
-        // Server model provider takes precedence over client header
-        provider: serverModelConfig.provider || provider,
+        // Server model provider takes precedence over client header.
+        // When the server default is EdgeOne (env AI_PROVIDER=edgeone), pin the
+        // provider so getAIModel's SSRF guard (baseUrl without apiKey) passes.
+        provider:
+            serverModelConfig.provider ||
+            provider ||
+            (effectiveProvider === "edgeone" ? "edgeone" : undefined),
         baseUrl,
         apiKey: req.headers.get("x-ai-api-key"),
         modelId: req.headers.get("x-ai-model"),
@@ -226,7 +236,7 @@ async function handleChatRequest(req: Request): Promise<Response> {
         // Vertex AI credentials (Express Mode)
         vertexApiKey: req.headers.get("x-vertex-api-key"),
         // Pass cookies for EdgeOne Pages authentication
-        ...(provider === "edgeone" &&
+        ...(effectiveProvider === "edgeone" &&
             cookieHeader && {
                 headers: { cookie: cookieHeader },
             }),
