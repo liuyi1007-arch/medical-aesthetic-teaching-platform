@@ -27,6 +27,22 @@ function getLocale(request: NextRequest): string | undefined {
 export function proxy(request: NextRequest) {
     const pathname = request.nextUrl.pathname
 
+    // The course exhibition is the public home of yimeidesign.com.
+    if (pathname === "/") {
+        const destination = request.nextUrl.clone()
+        destination.pathname = "/banquet-exhibition/index.html"
+        return NextResponse.rewrite(destination)
+    }
+
+    if (
+        pathname === "/zh/medical-aesthetic" ||
+        pathname === "/zh/medical-aesthetic/"
+    ) {
+        const destination = request.nextUrl.clone()
+        destination.pathname = "/"
+        return NextResponse.redirect(destination)
+    }
+
     // Skip API routes, static files, and Next.js internals
     if (
         pathname.startsWith("/api/") ||

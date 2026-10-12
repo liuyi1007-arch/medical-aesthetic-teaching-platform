@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#254e45">
+  <meta name="description" content="走进《宴会设计与服务》课程虚拟展厅。以完整宴会订单贯通需求分析、方案设计与现场服务，探索八模块、智慧资源与校企育人成果。">
+  <title>宴会设计与服务 · 课程虚拟展厅</title>
+  <link rel="icon" href="/banquet-exhibition/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/banquet-exhibition/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#scene-summary">跳到展区介绍</a>
+  <header class="masthead">
+    <button class="brand" id="brand" aria-label="返回序厅">
+      <span class="seal" aria-hidden="true">宴</span>
+      <span class="brand-type"><strong>宴会设计与服务</strong><small>重庆建筑科技职业学院 <span>· 课程虚拟展厅</span></small></span>
+    </button>
+    <nav class="header-actions" aria-label="展厅工具">
+      <button class="text-button" id="overview" aria-label="展厅总览"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>展厅总览</span></button>
+      <button class="text-button" id="reading-toggle" aria-label="切换阅读模式" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h7l2 2 2-2h7v15h-7l-2 2-2-2H3zM12 6v15"/></svg><span>阅读模式</span></button>
+      <a class="course-link" href="https://www.xueyinonline.com/detail/266065546" target="_blank" rel="noopener noreferrer">进入课程 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="app">
+    <section class="spatial-view" id="spatial-view" aria-label="三维课程展厅">
+      <div id="stage" class="stage" tabindex="0" role="region" aria-label="三维展厅场景。拖动环顾，左右方向键切换展区，回车查看展板。">
+        <div id="canvas-host"></div>
+        <div class="stage-wash"></div>
+        <div id="loading" class="loading"><span class="loading-orbit"></span><span>正在布置展厅</span></div>
+      </div>
+      <section class="scene-copy" id="scene-summary" aria-live="polite" aria-atomic="true">
+        <div class="eyebrow"><span id="room-number">00</span><span id="room-en">THE ART OF HOSPITALITY</span></div>
+        <h1 id="room-title">以礼为序<br>以宴传情</h1>
+        <div class="thin-rule"></div>
+        <p class="scene-subtitle" id="room-subtitle">宴会设计与服务</p>
+        <p class="scene-description" id="room-description">从一份宴会订单出发，走进文化、设计与服务相互交融的学习空间。</p>
+        <div class="scene-actions">
+          <button class="primary" id="explore">开启参观 <span aria-hidden="true">→</span></button>
+          <button class="secondary" id="read-room">阅读展板</button>
+        </div>
+        <dl class="course-numbers" id="course-numbers"><div><dt>32</dt><dd>学时</dd></div><div><dt>8</dt><dd>模块</dd></div><div><dt>23</dt><dd>项目</dd></div><div><dt>55</dt><dd>任务</dd></div></dl>
+      </section>
+      <div class="space-caption"><span class="small-dot"></span><span id="space-caption-text">序厅 · 宴会美学</span></div>
+      <div class="scene-controls">
+        <button class="icon-button" id="reset-view" title="重置视角" aria-label="重置视角"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 0 6M4 4v6h6"/></svg></button>
+        <button class="icon-button" id="fullscreen" title="全屏参观" aria-label="全屏参观"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></svg></button>
+        <button class="icon-button" id="help" title="参观帮助" aria-label="参观帮助">?</button>
+      </div>
+      <div class="mini-map" id="mini-map" aria-label="展厅方位导航"><span class="map-center" aria-hidden="true">宴</span></div>
+      <div class="space-note">课程虚拟空间 · 场景示意</div>
+      <div class="hint" id="drag-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-4-4 4 4-4 4M9 8l-4 4 4 4"/></svg>拖动环顾空间 <span>·</span> 点击展墙阅读</div>
+    </section>
+
+    <section class="reading-view" id="reading-view" hidden aria-label="课程展厅图文内容">
+      <div class="reading-heading"><span class="eyebrow">THE COURSE EXHIBITION</span><h1>一席之间，见专业。</h1><p>循着一份宴会订单，读懂课程的设计、教学与实践。</p></div>
+      <nav class="reading-nav" id="reading-nav" aria-label="阅读展区"></nav>
+      <div id="reading-content"></div>
+      <footer class="reading-footer">重庆建筑科技职业学院 · 宴会设计与服务<br><small>展厅资料整理日期：2026年10月13日</small></footer>
+    </section>
+
+    <footer class="tour-footer" id="tour-footer">
+      <div class="tour-topline"><span>展厅导览 <small id="visit-status">01 / 08</small></span><button id="auto-tour" aria-pressed="false"><span id="tour-icon" aria-hidden="true">▷</span><span id="tour-label">自动导览</span></button><span class="keyboard-hint">← → 切换展区</span></div>
+      <nav class="room-nav" id="room-nav" aria-label="选择展区"></nav>
+    </footer>
+  </main>
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-top"><span id="detail-kicker" class="eyebrow"></span><button class="close-button" data-close="detail-dialog" aria-label="关闭展板">×</button></div>
+    <div id="detail-content"></div>
+  </dialog>
+  <dialog id="image-dialog" class="image-dialog" aria-labelledby="image-title">
+    <div class="image-top"><div><h2 id="image-title"></h2><p id="image-source"></p></div><button class="close-button" data-close="image-dialog" aria-label="关闭图片">×</button></div>
+    <div class="image-scroll"><img id="large-image" alt=""></div>
+  </dialog>
+  <dialog id="overview-dialog" class="overview-dialog" aria-labelledby="overview-title">
+    <div class="dialog-top"><span class="eyebrow">EXHIBITION DIRECTORY</span><button class="close-button" data-close="overview-dialog" aria-label="关闭总览">×</button></div>
+    <h2 id="overview-title">八个展区，一场课程之旅</h2><p class="muted">按顺序参观，或从感兴趣的展区开始。</p><div id="overview-grid"></div>
+  </dialog>
+  <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title">
+    <div class="dialog-top"><span class="eyebrow">VISITOR GUIDE</span><button class="close-button" data-close="help-dialog" aria-label="关闭帮助">×</button></div>
+    <h2 id="help-title">随心参观，从容阅读</h2>
+    <ul><li>点击底部展区或方位图，切换观看位置。</li><li>在空间中拖动，可小范围环顾；点击展墙，打开对应展板。</li><li>点击“阅读展板”查看正文与原始展品，点击图片放大。</li><li>使用左右方向键切换展区，Esc 关闭弹窗。</li><li>“自动导览”每20秒切换一次，打开展板后自动暂停。</li><li>手机或不支持三维显示的设备可使用“阅读模式”。</li></ul>
+    <p class="muted">本展厅三维空间为课程展示设计，实训照片与成果图像均来自所列课程资料。</p>
+  </dialog>
+  <div id="toast" role="status"></div>
+  <noscript><p class="noscript">请启用 JavaScript 浏览三维展厅。也可<a href="/banquet-exhibition/exhibition.html">打开纯图文课程展厅</a>。</p></noscript>
+  <script src="/banquet-exhibition/exhibit.js" defer></script>
+</body>
+</html>
