@@ -2,7 +2,7 @@ import { expect, getIframe, test } from "./lib/fixtures"
 
 test.describe("Chat Panel", () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
     })
 

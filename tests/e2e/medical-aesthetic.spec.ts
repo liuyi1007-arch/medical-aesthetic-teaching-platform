@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test"
 
 test.describe("medical aesthetic teaching platform", () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto("/zh/medical-aesthetic")
+        await page.goto("/en/medical-aesthetic")
         await page.evaluate(() => localStorage.clear())
         await page.reload()
     })
@@ -84,7 +84,7 @@ test.describe("medical aesthetic teaching platform", () => {
             { width: 1366, height: 768, name: "1366x768" },
         ]) {
             await page.setViewportSize(viewport)
-            await page.goto("/zh/medical-aesthetic")
+            await page.goto("/en/medical-aesthetic")
             await page.evaluate(() => localStorage.clear())
             await page.reload()
             await page.getByRole("button", { name: "载入示范案例" }).click()

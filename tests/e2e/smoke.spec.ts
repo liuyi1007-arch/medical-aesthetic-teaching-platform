@@ -5,7 +5,7 @@ test.describe("Smoke Tests", () => {
         const errors: string[] = []
         page.on("pageerror", (err) => errors.push(err.message))
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await expect(page).toHaveTitle(/Draw\.io/i, { timeout: 10000 })
 
         const iframe = getIframe(page)
@@ -28,7 +28,7 @@ test.describe("Smoke Tests", () => {
     })
 
     test("settings dialog opens", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await openSettings(page)

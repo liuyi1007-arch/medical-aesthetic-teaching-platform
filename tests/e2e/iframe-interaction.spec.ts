@@ -11,7 +11,7 @@ import { createMockSSEResponse } from "./lib/helpers"
 
 test.describe("Iframe Interaction", () => {
     test("draw.io iframe loads successfully", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
 
         const iframe = getIframe(page)
         await expect(iframe).toBeVisible({ timeout: 30000 })
@@ -26,7 +26,7 @@ test.describe("Iframe Interaction", () => {
     })
 
     test("can interact with draw.io toolbar", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const frame = getIframeContent(page)
@@ -55,7 +55,7 @@ test.describe("Iframe Interaction", () => {
             })
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await sendMessage(page, "Create a test node")
@@ -66,7 +66,7 @@ test.describe("Iframe Interaction", () => {
     })
 
     test("zoom controls work in draw.io", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const frame = getIframeContent(page)
@@ -78,7 +78,7 @@ test.describe("Iframe Interaction", () => {
     })
 
     test("can resize the panel divider", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         // Find the resizer/divider between panels
@@ -103,7 +103,7 @@ test.describe("Iframe Interaction", () => {
     })
 
     test("iframe responds to window resize", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const iframe = getIframe(page)

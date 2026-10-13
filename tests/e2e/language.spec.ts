@@ -9,7 +9,7 @@ import {
 
 test.describe("Language Switching", () => {
     test("loads English by default", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const chatInput = getChatInput(page)
@@ -19,7 +19,7 @@ test.describe("Language Switching", () => {
     })
 
     test("can switch to Japanese", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await test.step("open settings and select Japanese", async () => {
@@ -37,7 +37,7 @@ test.describe("Language Switching", () => {
     })
 
     test("can switch to Chinese", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await test.step("open settings and select Chinese", async () => {
@@ -55,7 +55,7 @@ test.describe("Language Switching", () => {
     })
 
     test("language persists after reload", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await test.step("switch to Japanese", async () => {

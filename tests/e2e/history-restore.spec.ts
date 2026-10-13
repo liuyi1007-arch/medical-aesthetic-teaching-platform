@@ -25,7 +25,7 @@ test.describe("History and Session Restore", () => {
             })
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await test.step("create a conversation", async () => {
@@ -49,7 +49,7 @@ test.describe("History and Session Restore", () => {
     })
 
     test("chat history sidebar shows past conversations", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const historyButton = page.locator(
@@ -78,7 +78,7 @@ test.describe("History and Session Restore", () => {
             })
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await test.step("create conversation", async () => {
@@ -114,7 +114,7 @@ test.describe("History and Session Restore", () => {
             })
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await sendMessage(page, "Create saveable diagram")
@@ -143,7 +143,7 @@ test.describe("History and Session Restore", () => {
             })
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await sendMessage(page, "Test navigation")
@@ -157,7 +157,7 @@ test.describe("History and Session Restore", () => {
     })
 
     test("settings are restored after reload", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await openSettings(page)
@@ -170,7 +170,7 @@ test.describe("History and Session Restore", () => {
     })
 
     test("model selection persists", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const modelSelector = page.locator(
@@ -193,7 +193,7 @@ test.describe("History and Session Restore", () => {
     })
 
     test("handles localStorage quota exceeded gracefully", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await page.evaluate(() => {
