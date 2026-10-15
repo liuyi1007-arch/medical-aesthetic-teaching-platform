@@ -15,7 +15,7 @@ test.describe("Error Handling", () => {
             createErrorMock(500, "Internal server error"),
         )
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await sendMessage(page, "Draw a cat")
@@ -41,7 +41,7 @@ test.describe("Error Handling", () => {
             createErrorMock(429, "Rate limit exceeded"),
         )
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await sendMessage(page, "Draw a cat")
@@ -65,7 +65,7 @@ test.describe("Error Handling", () => {
             await route.abort("timedout")
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await sendMessage(page, "Draw a cat")
@@ -123,7 +123,7 @@ test.describe("Error Handling", () => {
             })
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await sendMessage(page, "Draw something")

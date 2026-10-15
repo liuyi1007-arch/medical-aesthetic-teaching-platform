@@ -20,6 +20,14 @@ npm run demo:start
 
 打开 `http://localhost:6001/zh/medical-aesthetic`。
 
+医学美容教学平台的正式入口为 `/zh/medical-aesthetic`，与下方一键启动脚本及 E2E 测试保持一致。各页面用途如下：
+
+| 路径 | 页面 |
+| --- | --- |
+| `/` | 《宴会设计与服务》课程虚拟展厅（公共首页） |
+| `/zh/medical-aesthetic` | 医学美容设计教学平台（正式教学入口） |
+| `/en` | draw.io 编辑器（保留原有编辑功能） |
+
 - macOS 可双击 `scripts/start-medical-aesthetic.command`
 - Windows 可双击 `scripts/start-medical-aesthetic.cmd`
 - 详细设计见 `docs/superpowers/specs/2026-07-10-medical-aesthetic-teaching-platform-design.md`

@@ -14,7 +14,7 @@ export const test = base.extend<{
     appPage: Page
 }>({
     appPage: async ({ page }, use) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await page
             .locator("iframe")
             .waitFor({ state: "visible", timeout: 30000 })

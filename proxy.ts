@@ -34,15 +34,6 @@ export function proxy(request: NextRequest) {
         return NextResponse.rewrite(destination)
     }
 
-    if (
-        pathname === "/zh/medical-aesthetic" ||
-        pathname === "/zh/medical-aesthetic/"
-    ) {
-        const destination = request.nextUrl.clone()
-        destination.pathname = "/"
-        return NextResponse.redirect(destination)
-    }
-
     // Skip API routes, static files, and Next.js internals
     if (
         pathname.startsWith("/api/") ||

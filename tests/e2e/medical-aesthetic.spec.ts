@@ -5,6 +5,7 @@ test.describe("medical aesthetic teaching platform", () => {
         await page.goto("/zh/medical-aesthetic")
         await page.evaluate(() => localStorage.clear())
         await page.reload()
+        await expect(page).toHaveURL(/\/zh\/medical-aesthetic$/)
     })
 
     test("completes the four-step offline teaching flow", async ({ page }) => {

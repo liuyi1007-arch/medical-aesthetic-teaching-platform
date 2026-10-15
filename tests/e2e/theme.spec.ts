@@ -2,7 +2,7 @@ import { expect, getIframe, openSettings, sleep, test } from "./lib/fixtures"
 
 test.describe("Theme Switching", () => {
     test("can toggle app dark mode", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await openSettings(page)
@@ -28,7 +28,7 @@ test.describe("Theme Switching", () => {
     })
 
     test("theme persists after page reload", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await openSettings(page)
@@ -65,7 +65,7 @@ test.describe("Theme Switching", () => {
     })
 
     test("draw.io theme toggle exists", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         await openSettings(page)
@@ -78,7 +78,7 @@ test.describe("Theme Switching", () => {
     test("system theme preference is respected", async ({ page }) => {
         await page.emulateMedia({ colorScheme: "dark" })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const html = page.locator("html")

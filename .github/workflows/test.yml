@@ -41,6 +41,7 @@ jobs:
   e2e:
     name: E2E Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
 
@@ -70,6 +71,11 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: Run public entry point smoke tests
+        run: npx playwright test tests/e2e/medical-aesthetic.spec.ts tests/e2e/smoke.spec.ts --grep "medical aesthetic teaching platform|public homepage"
+        env:
+          CI: true
 
       - name: Run E2E tests
         run: npm run test:e2e

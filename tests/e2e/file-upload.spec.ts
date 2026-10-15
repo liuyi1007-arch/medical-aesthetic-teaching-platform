@@ -10,7 +10,7 @@ import { createMockSSEResponse } from "./lib/helpers"
 
 test.describe("File Upload", () => {
     test("upload button opens file picker", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const uploadButton = page.locator(
@@ -21,7 +21,7 @@ test.describe("File Upload", () => {
     })
 
     test("shows file preview after selecting image", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const fileInput = page.locator('input[type="file"]')
@@ -41,7 +41,7 @@ test.describe("File Upload", () => {
     })
 
     test("can remove uploaded file", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const fileInput = page.locator('input[type="file"]')
@@ -88,7 +88,7 @@ test.describe("File Upload", () => {
             })
         })
 
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const fileInput = page.locator('input[type="file"]')
@@ -112,7 +112,7 @@ test.describe("File Upload", () => {
     })
 
     test("shows error for oversized file", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const fileInput = page.locator('input[type="file"]')
@@ -130,7 +130,7 @@ test.describe("File Upload", () => {
     })
 
     test("drag and drop file upload works", async ({ page }) => {
-        await page.goto("/", { waitUntil: "networkidle" })
+        await page.goto("/en", { waitUntil: "networkidle" })
         await getIframe(page).waitFor({ state: "visible", timeout: 30000 })
 
         const chatForm = page.locator("form").first()
